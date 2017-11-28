@@ -12,12 +12,13 @@ df.show(n=10)
 row_count_first = df.count()
 
 # Example file name: 'wasb://data-files@bikesharestorage.blob.core.windows.net/testdata'
-filename = 'wasb://data-files@bikesharestorage.blob.core.windows.net/testdata'
+blobfolder = 'wasb://data-files@bikesharestorage.blob.core.windows.net/testdata'
 
-df.write.csv(filename, mode='overwrite') 
+df.write.csv(blobfolder, mode='overwrite') 
 
 # retrieve csv file parts into one data frame
-df = spark.read.option("header", "false").csv("wasb://data-files@bikesharestorage.blob.core.windows.net/traindata2/*.csv")
+csvfiles = "wasb://data-files@bikesharestorage.blob.core.windows.net/testdata/*.csv"
+df = spark.read.option("header", "false").csv(csvfiles)
 row_count_result = df.count()
 print(row_count_result)
 if (row_count_first == row_count_result):
