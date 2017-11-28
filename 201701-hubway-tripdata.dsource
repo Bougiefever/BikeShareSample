@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 39,
+  "id": "dda0eee9-f338-4e0f-a603-f484c26564fd",
+  "activities": [
+    {
+      "id": "5f25f35c-fe62-4e56-a05d-c385f41d91e0",
+      "name": "201701-hubway-tripdata",
+      "blocks": [
+        {
+          "id": "5fe3f6d5-7098-41c6-8ece-16762d118e1c",
+          "type": "Microsoft.DPrep.DataSourceBlock",
+          "arguments": {
+            "path": {
+              "target": 1,
+              "resourceDetails": [
+                {
+                  "path": "https://bikesharestorage.blob.core.windows.net/data-files/tripdata/201701-hubway-tripdata.csv",
+                  "sas": {
+                    "id": "https://bikesharestorage.blob.core.windows.net/data-files/tripdata/201701-hubway-tripdata.csv",
+                    "secretType": "AzureMLSecret"
+                  },
+                  "storageAccountName": "bikesharestorage",
+                  "storageAccountKey": {
+                    "id": "bikesharestorage",
+                    "secretType": "AzureMLSecret"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "25d9dc42-2642-4f3a-8cd4-707c456a82b4",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "preview": false,
+            "columnHeadersMode": 1,
+            "separator": ",",
+            "fileEncoding": 0,
+            "skipRowsMode": 0,
+            "handleQuotedLineBreaks": false
+          }
+        },
+        {
+          "id": "10d029a6-52ff-4c90-8f0c-c466af70cefd",
+          "type": "Microsoft.DPrep.SetColumnTypesBlock",
+          "arguments": {
+            "columnConversion": [
+              {
+                "columnId": "bikeid",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "tripduration",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "starttime",
+                "typeProperty": 4,
+                "typeArguments": {
+                  "dateTimeFormat": "%Y-%m-%d %H:%M:%S"
+                }
+              },
+              {
+                "columnId": "stoptime",
+                "typeProperty": 4,
+                "typeArguments": {
+                  "dateTimeFormat": "%Y-%m-%d %H:%M:%S"
+                }
+              },
+              {
+                "columnId": "start station id",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "start station latitude",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "start station longitude",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "end station id",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "end station latitude",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "end station longitude",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "gender",
+                "typeProperty": 3,
+                "typeArguments": {}
+              }
+            ]
+          }
+        },
+        {
+          "id": "4e8da842-cb57-4f83-88c5-8e10068bc92d",
+          "type": "Microsoft.DPrep.SampleBlock",
+          "arguments": {
+            "samples": [
+              {
+                "sampleId": "50d5dc4e-a7e6-4275-a6c4-bc301d41c78f",
+                "sampleRevision": "2c282a76-dea9-4bb2-9aed-e67f0bd1062b",
+                "sampleName": "Top 10000",
+                "sampleRunner": {
+                  "id": null,
+                  "type": 0
+                },
+                "remoteGeneratorProperties": {},
+                "sampleStrategy": 0,
+                "topArguments": {
+                  "sampleCount": 10000
+                },
+                "randomNArguments": {
+                  "sampleCount": 10000
+                },
+                "randomPercentArguments": {
+                  "probability": 0.1
+                },
+                "allowAutoGen": true,
+                "isDisabled": false
+              },
+              {
+                "sampleId": "6a5aa547-bde2-4b59-b04d-ebb7aca6640f",
+                "sampleRevision": "706d8b52-7166-4ec8-9c44-d2fb3571ddf5",
+                "sampleName": "Full File",
+                "sampleRunner": {
+                  "id": null,
+                  "type": 0
+                },
+                "remoteGeneratorProperties": {},
+                "sampleStrategy": 3,
+                "topArguments": {
+                  "sampleCount": 10000
+                },
+                "randomNArguments": {
+                  "sampleCount": 10000
+                },
+                "randomPercentArguments": {
+                  "probability": 0.1
+                },
+                "allowAutoGen": true,
+                "isDisabled": false
+              }
+            ],
+            "activeSample": "6a5aa547-bde2-4b59-b04d-ebb7aca6640f"
+          }
+        },
+        {
+          "id": "a0b95e52-0013-4e07-a69e-f2d9e61b1589",
+          "type": "Microsoft.DPrep.HandlePathColumnBlock",
+          "arguments": {
+            "pathColumnOperation": 0
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "b60a106d-f3f8-499c-bec3-52381fdca2f4",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "5f25f35c-fe62-4e56-a05d-c385f41d91e0",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": false
+        }
+      ]
+    }
+  ],
+  "runConfigurations": []
+}

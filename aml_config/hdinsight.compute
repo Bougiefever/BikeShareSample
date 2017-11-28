@@ -1,0 +1,5 @@
+address: bikeshareml-ssh.azurehdinsight.net
+password: AzureMlSecret=hdinsight#sshuser#a68a53a9ca5847db84abc4852b25e95e
+type: cluster
+username: sshuser
+yarnDeployMode: cluster

@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 39,
+  "id": "4737b141-2eb1-4500-8b7b-d228ee96dc6d",
+  "activities": [
+    {
+      "id": "a9c099a0-b87b-4e8b-8c59-5985d42dd4a0",
+      "name": "BostonWeather",
+      "blocks": [
+        {
+          "id": "1af47423-56bb-407e-a662-1e3f44ffc471",
+          "type": "Microsoft.DPrep.DataSourceBlock",
+          "arguments": {
+            "path": {
+              "target": 1,
+              "resourceDetails": [
+                {
+                  "path": "https://bikesharestorage.blob.core.windows.net/data-files/weather/BostonWeather.csv",
+                  "sas": {
+                    "id": "https://bikesharestorage.blob.core.windows.net/data-files/weather/BostonWeather.csv",
+                    "secretType": "AzureMLSecret"
+                  },
+                  "storageAccountName": "bikesharestorage",
+                  "storageAccountKey": {
+                    "id": "bikesharestorage",
+                    "secretType": "AzureMLSecret"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "823605cf-f6a8-4b6c-899a-612b0559028b",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "preview": false,
+            "columnHeadersMode": 1,
+            "separator": ",",
+            "fileEncoding": 0,
+            "skipRowsMode": 0,
+            "handleQuotedLineBreaks": false
+          }
+        },
+        {
+          "id": "0142a41e-94bd-4833-8706-48b5b7c4140a",
+          "type": "Microsoft.DPrep.SetColumnTypesBlock",
+          "arguments": {
+            "columnConversion": []
+          }
+        },
+        {
+          "id": "3d81c1f7-a8eb-4050-a780-fdb3035eea3c",
+          "type": "Microsoft.DPrep.SampleBlock",
+          "arguments": {
+            "samples": [
+              {
+                "sampleId": "5c8f3af2-a905-4058-82c4-38b9878d6ba3",
+                "sampleRevision": "fbd70658-fb83-4145-b882-d5c74e161b5d",
+                "sampleName": "Full File",
+                "sampleRunner": {
+                  "id": null,
+                  "type": 0
+                },
+                "remoteGeneratorProperties": {},
+                "sampleStrategy": 3,
+                "topArguments": {
+                  "sampleCount": 5000
+                },
+                "randomNArguments": {
+                  "sampleCount": 10000
+                },
+                "randomPercentArguments": {
+                  "probability": 0.1,
+                  "seed": 1573923446
+                },
+                "allowAutoGen": true,
+                "isDisabled": false
+              }
+            ],
+            "activeSample": "5c8f3af2-a905-4058-82c4-38b9878d6ba3"
+          }
+        },
+        {
+          "id": "b330e47b-95bb-4c06-9f39-6e2be05206fd",
+          "type": "Microsoft.DPrep.HandlePathColumnBlock",
+          "arguments": {
+            "pathColumnOperation": 0
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "373b74a6-59c9-4b4e-88ed-f23a39a44e48",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "a9c099a0-b87b-4e8b-8c59-5985d42dd4a0",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": false
+        }
+      ]
+    }
+  ],
+  "runConfigurations": []
+}

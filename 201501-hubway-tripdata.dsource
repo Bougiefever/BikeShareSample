@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 39,
+  "id": "890568b7-3b78-4952-87c2-eee228de4371",
+  "activities": [
+    {
+      "id": "a7645118-0f5e-4620-8933-9ee228cd887e",
+      "name": "201501-hubway-tripdata",
+      "blocks": [
+        {
+          "id": "93f9316f-b8e7-494d-8129-622364cb0d38",
+          "type": "Microsoft.DPrep.DataSourceBlock",
+          "arguments": {
+            "path": {
+              "target": 1,
+              "resourceDetails": [
+                {
+                  "path": "https://bikesharestorage.blob.core.windows.net/data-files/tripdata/201501-hubway-tripdata.csv",
+                  "sas": {
+                    "id": "https://bikesharestorage.blob.core.windows.net/data-files/tripdata/201501-hubway-tripdata.csv",
+                    "secretType": "AzureMLSecret"
+                  },
+                  "storageAccountName": "bikesharestorage",
+                  "storageAccountKey": {
+                    "id": "bikesharestorage",
+                    "secretType": "AzureMLSecret"
+                  }
+                },
+                {
+                  "path": "https://bikesharestorage.blob.core.windows.net/data-files/tripdata/201610-hubway-tripdata.csv",
+                  "sas": {
+                    "id": "https://bikesharestorage.blob.core.windows.net/data-files/tripdata/201610-hubway-tripdata.csv",
+                    "secretType": "AzureMLSecret"
+                  },
+                  "storageAccountName": "bikesharestorage",
+                  "storageAccountKey": {
+                    "id": "bikesharestorage",
+                    "secretType": "AzureMLSecret"
+                  }
+                },
+                {
+                  "path": "https://bikesharestorage.blob.core.windows.net/data-files/tripdata/201604-hubway-tripdata.csv",
+                  "sas": {
+                    "id": "https://bikesharestorage.blob.core.windows.net/data-files/tripdata/201604-hubway-tripdata.csv",
+                    "secretType": "AzureMLSecret"
+                  },
+                  "storageAccountName": "bikesharestorage",
+                  "storageAccountKey": {
+                    "id": "bikesharestorage",
+                    "secretType": "AzureMLSecret"
+                  }
+                },
+                {
+                  "path": "https://bikesharestorage.blob.core.windows.net/data-files/tripdata/201601-hubway-tripdata.csv",
+                  "sas": {
+                    "id": "https://bikesharestorage.blob.core.windows.net/data-files/tripdata/201601-hubway-tripdata.csv",
+                    "secretType": "AzureMLSecret"
+                  },
+                  "storageAccountName": "bikesharestorage",
+                  "storageAccountKey": {
+                    "id": "bikesharestorage",
+                    "secretType": "AzureMLSecret"
+                  }
+                },
+                {
+                  "path": "https://bikesharestorage.blob.core.windows.net/data-files/tripdata/201510-hubway-tripdata.csv",
+                  "sas": {
+                    "id": "https://bikesharestorage.blob.core.windows.net/data-files/tripdata/201510-hubway-tripdata.csv",
+                    "secretType": "AzureMLSecret"
+                  },
+                  "storageAccountName": "bikesharestorage",
+                  "storageAccountKey": {
+                    "id": "bikesharestorage",
+                    "secretType": "AzureMLSecret"
+                  }
+                },
+                {
+                  "path": "https://bikesharestorage.blob.core.windows.net/data-files/tripdata/201504-hubway-tripdata.csv",
+                  "sas": {
+                    "id": "https://bikesharestorage.blob.core.windows.net/data-files/tripdata/201504-hubway-tripdata.csv",
+                    "secretType": "AzureMLSecret"
+                  },
+                  "storageAccountName": "bikesharestorage",
+                  "storageAccountKey": {
+                    "id": "bikesharestorage",
+                    "secretType": "AzureMLSecret"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "f51c3893-7149-4541-a458-fd4eebfbc302",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "preview": false,
+            "columnHeadersMode": 3,
+            "separator": ",",
+            "fileEncoding": 0,
+            "skipRowsMode": 0,
+            "handleQuotedLineBreaks": false
+          }
+        },
+        {
+          "id": "07b278e8-2dec-4fc1-b85d-324e1b4e5b61",
+          "type": "Microsoft.DPrep.SetColumnTypesBlock",
+          "arguments": {
+            "columnConversion": [
+              {
+                "columnId": "tripduration",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "gender",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "starttime",
+                "typeProperty": 4,
+                "typeArguments": {
+                  "dateTimeFormat": "%Y-%m-%d %H:%M:%S"
+                }
+              },
+              {
+                "columnId": "start station longitude",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "end station longitude",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "start station id",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "start station latitude",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "bikeid",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "stoptime",
+                "typeProperty": 4,
+                "typeArguments": {
+                  "dateTimeFormat": "%Y-%m-%d %H:%M:%S"
+                }
+              },
+              {
+                "columnId": "end station id",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "end station latitude",
+                "typeProperty": 3,
+                "typeArguments": {}
+              }
+            ]
+          }
+        },
+        {
+          "id": "f0f2954d-d0be-4cf8-8ff7-7e31fd18ccdd",
+          "type": "Microsoft.DPrep.SampleBlock",
+          "arguments": {
+            "samples": [
+              {
+                "sampleId": "dbe0f913-6947-44ef-9983-b0c417a7c2f1",
+                "sampleRevision": "3f62f4cd-b3be-4379-8776-eee714e1eb81",
+                "sampleName": "Full File",
+                "sampleRunner": {
+                  "id": null,
+                  "type": 0
+                },
+                "remoteGeneratorProperties": {},
+                "sampleStrategy": 3,
+                "topArguments": {
+                  "sampleCount": 10000
+                },
+                "randomNArguments": {
+                  "sampleCount": 10000
+                },
+                "randomPercentArguments": {
+                  "probability": 0.1
+                },
+                "allowAutoGen": true,
+                "isDisabled": false
+              }
+            ],
+            "activeSample": "dbe0f913-6947-44ef-9983-b0c417a7c2f1"
+          }
+        },
+        {
+          "id": "750c14af-5304-49ce-bfc4-c62acbd146ac",
+          "type": "Microsoft.DPrep.HandlePathColumnBlock",
+          "arguments": {
+            "pathColumnOperation": 0
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "1892e3d1-459c-49b4-a298-c48659ec10b2",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "a7645118-0f5e-4620-8933-9ee228cd887e",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": false
+        }
+      ]
+    }
+  ],
+  "runConfigurations": []
+}

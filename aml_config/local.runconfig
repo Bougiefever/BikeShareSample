@@ -53,3 +53,5 @@ UseSampling: true
 # DataSourceSubstitutions:
 #     my.dsource: replacement.dsource
 
+DataSourceSubstitutions:
+  201701-hubway-tripdata.dsource: 201501-hubway-tripdata.dsource
