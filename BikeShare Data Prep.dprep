@@ -553,6 +553,311 @@
             "anonymousSteps": null
           },
           "isBackground": false
+        },
+        {
+          "id": "0f3c0f85-e48c-4183-99f8-27e192dba106",
+          "type": "Microsoft.DPrep.ColumnStatsInspector",
+          "arguments": {
+            "columnId": "Period"
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "3fbf3499-7972-4af2-95d8-4d51c9b1304e",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "8605d73f-1145-4ca8-93d5-10f48d7331de",
+          "type": "Microsoft.DPrep.ColumnStatsInspector",
+          "arguments": {
+            "columnId": "Weekday"
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "3fbf3499-7972-4af2-95d8-4d51c9b1304e",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "50a46043-e9dc-48ea-9fce-e6269da5222e",
+          "type": "Microsoft.DPrep.ColumnStatsInspector",
+          "arguments": {
+            "columnId": "N_DryBulbTemp"
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "3fbf3499-7972-4af2-95d8-4d51c9b1304e",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "ca3db05d-d23d-4a11-9cc4-c1452c87e15b",
+          "type": "Microsoft.DPrep.ColumnStatsInspector",
+          "arguments": {
+            "columnId": "N_RelativeHumidity"
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "3fbf3499-7972-4af2-95d8-4d51c9b1304e",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "f1222e80-053f-4723-8c1e-ed5e6d756103",
+          "type": "Microsoft.DPrep.ColumnStatsInspector",
+          "arguments": {
+            "columnId": "N_WindSpeed"
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "3fbf3499-7972-4af2-95d8-4d51c9b1304e",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "ddfbe178-788f-4542-9777-9a5feab6a709",
+          "type": "Microsoft.DPrep.ColumnStatsInspector",
+          "arguments": {
+            "columnId": "r_start station id"
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "3fbf3499-7972-4af2-95d8-4d51c9b1304e",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "144a7f56-7612-4617-bb4e-8a688734afb5",
+          "type": "Microsoft.DPrep.ColumnStatsInspector",
+          "arguments": {
+            "columnId": "r_startstation id_Count"
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "3fbf3499-7972-4af2-95d8-4d51c9b1304e",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "6ef8d4d8-e8b9-49bf-92c2-a131cae1adfe",
+          "type": "Microsoft.DPrep.ValueCountInspector",
+          "arguments": {
+            "columnId": "r_start station id",
+            "numberOfTopValues": 6,
+            "descending": true,
+            "includeNulls": true,
+            "haloEffect": true,
+            "logScale": false
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "3fbf3499-7972-4af2-95d8-4d51c9b1304e",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "b675130a-6899-4882-b847-54fd991c46d8",
+          "type": "Microsoft.DPrep.HistogramInspector",
+          "arguments": {
+            "columnId": "r_start station id",
+            "numberOfBreaks": 6,
+            "defaultBucketing": true,
+            "haloEffect": true,
+            "densityPlot": true,
+            "logScale": false
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "3fbf3499-7972-4af2-95d8-4d51c9b1304e",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "185f8ea6-e4e7-4327-bd18-c1c71b28b51f",
+          "type": "Microsoft.DPrep.ValueCountInspector",
+          "arguments": {
+            "columnId": "r_start station id",
+            "numberOfTopValues": 6,
+            "descending": true,
+            "includeNulls": true,
+            "haloEffect": true,
+            "logScale": false
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "3fbf3499-7972-4af2-95d8-4d51c9b1304e",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "384231fc-0e60-4459-8660-159e5ef4a006",
+          "type": "Microsoft.DPrep.HistogramInspector",
+          "arguments": {
+            "columnId": "r_startstation id_Count",
+            "numberOfBreaks": 6,
+            "defaultBucketing": true,
+            "haloEffect": true,
+            "densityPlot": true,
+            "logScale": false
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "3fbf3499-7972-4af2-95d8-4d51c9b1304e",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "a9735f70-b961-4269-9ed2-ac447a2f6fea",
+          "type": "Microsoft.DPrep.ColumnStatsInspector",
+          "arguments": {
+            "columnId": "r_startstation id_Count"
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "3fbf3499-7972-4af2-95d8-4d51c9b1304e",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "3b628d3d-2e16-43ad-ad58-b28160d4395f",
+          "type": "Microsoft.DPrep.ValueCountInspector",
+          "arguments": {
+            "columnId": "r_startstation id_Count",
+            "numberOfTopValues": 6,
+            "descending": true,
+            "includeNulls": true,
+            "haloEffect": true,
+            "logScale": false
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "3fbf3499-7972-4af2-95d8-4d51c9b1304e",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "7b17799f-ebe2-4e4f-be55-b2caf11baeac",
+          "type": "Microsoft.DPrep.ColumnStatsInspector",
+          "arguments": {
+            "columnId": "r_startstation id_Count"
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "3fbf3499-7972-4af2-95d8-4d51c9b1304e",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
         }
       ]
     }
