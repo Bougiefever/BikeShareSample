@@ -28,7 +28,7 @@ y = C.input_variable(num_outputs, is_sparse=True)
 base_container = 'data-files'
 train_folder = 'train_ctf'
 test_folder = 'test_ctf'
-base_local = 'C:/data/bikeshare/'
+base_local = '/data/bikeshare/'
 model_path = os.path.join('.', 'outputs', 'model.dnn')
 blob_acct_name = 'bikesharestorage'
 blob_acct_key = 'L4XWmq7V6+Xk90GloM7zxNOkp4ut9kzyf7+1e1Qp9Bt+hGiP33jZuT4L9U8Gye4UWlrloXTtOMO+t4J7/3sMiA=='
