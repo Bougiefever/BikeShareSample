@@ -110,6 +110,17 @@ progress_writer = C.logging.ProgressPrinter(freq=epoch_size)
 checkpoint_config = C.CheckpointConfig(filename=model_path, frequency=(epoch_size * 10), restore = False)
 
 #test_config = C.TestConfig(test_source)
+def custom_cv_func(index, average_error, cv_num_samples, cv_num_minibatches):
+    print("CV Error: " + str(average_error))
+    run_logger.log("Error", average_error)
+    return True
+
+cv_config = C.CrossValidationConfig(minibatch_source = train_source,
+                                    minibatch_size = minibatch_size,
+                                    model_inputs_to_streams = input_map,
+                                    frequency = epoch_size,
+                                    max_samples = epoch_size,
+                                    callback=custom_cv_func)
 
 progress = criterion.train(train_source, 
                            minibatch_size = minibatch_size,
@@ -117,7 +128,7 @@ progress = criterion.train(train_source,
                            epoch_size = epoch_size,
                            max_epochs = 100, 
                            parameter_learners = [learner], 
-                           callbacks = [progress_writer])#, checkpoint_config])#, test_config])
+                           callbacks = [progress_writer, cv_config])#, checkpoint_config])#, test_config])
 
 inf_model = C.softmax(model)
 inf_model.save(model_path)
