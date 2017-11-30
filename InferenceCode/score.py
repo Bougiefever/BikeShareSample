@@ -2,9 +2,7 @@ import json
 import numpy as np
 import os, glob
 import argparse
-import cv2
 from cntk.ops.functions import load_model
-import matplotlib.pyplot as plt
 
 MODEL = ''
 
@@ -14,8 +12,8 @@ def init():
     MODEL = load_model('./model_files/model.dnn')
 
 def pre_process(data):    
-    '''Normalize pixel information and split into 256x256'''
-    return img
+    '''Preprocess data to prep for ML'''
+    return data
 
 def predict(proc_data):
     '''returns prediction from processed data'''
