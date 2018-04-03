@@ -4,7 +4,7 @@ from pyspark.sql.types import Row
 
 spark = pyspark.sql.SparkSession.builder.appName('BikeShare').getOrCreate()
 
-df = spark.read.option("header", "false").csv("wasb://data-files@bikesharestorage.blob.core.windows.net/traindata/*.csv")
+df = spark.read.option("header", "false").csv("wasb://data-files@kpmgstorage1.blob.core.windows.net/traindata/*.csv")
 
 c0_unique = df.select('_c0').distinct().rdd.map(lambda r: r[0]).collect()
 c1_unique = df.select('_c1').distinct().rdd.map(lambda r: r[0]).collect()
@@ -59,4 +59,4 @@ def row_to_ctf_string(r):
     s = s + str(r['_6'][0]) + ' '
     return s
 pfw = mapped.rdd.flatMap(lambda r: Row(row_to_ctf_string(r)) )
-pfw.saveAsTextFile("wasb://data-files@bikesharestorage.blob.core.windows.net/train_ctf")
+pfw.saveAsTextFile("wasb://data-files@kpmgstorage1.blob.core.windows.net/train_ctf")

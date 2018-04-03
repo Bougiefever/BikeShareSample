@@ -1,7 +1,6 @@
 ArgumentVector:
-- $file
+    - $file
 CondaDependenciesFile: aml_config/conda_dependencies.yml
-EnvironmentVariables: null
 Framework: PySpark
 PrepareEnvironment: false
 SparkDependenciesFile: aml_config/spark_dependencies.yml
@@ -9,4 +8,4 @@ Target: hdinsight
 TrackedRun: true
 UseSampling: true
 DataSourceSubstitutions:
-  201701-hubway-tripdata.dsource: 201501-hubway-tripdata.dsource
+    201701-hubway-tripdata.dsource: 201501-hubway-tripdata.dsource

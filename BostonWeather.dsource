@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 39,
+  "schemaVersion": 40,
   "id": "4737b141-2eb1-4500-8b7b-d228ee96dc6d",
   "activities": [
     {
@@ -14,14 +14,14 @@
               "target": 1,
               "resourceDetails": [
                 {
-                  "path": "https://bikesharestorage.blob.core.windows.net/data-files/weather/BostonWeather.csv",
+                  "path": "https://bikeshare.blob.core.windows.net/data-files/BostonWeather.csv",
                   "sas": {
-                    "id": "https://bikesharestorage.blob.core.windows.net/data-files/weather/BostonWeather.csv",
+                    "id": "https://bikeshare.blob.core.windows.net/data-files/BostonWeather.csv",
                     "secretType": "AzureMLSecret"
                   },
-                  "storageAccountName": "bikesharestorage",
+                  "storageAccountName": "bikeshare",
                   "storageAccountKey": {
-                    "id": "bikesharestorage",
+                    "id": "bikeshare",
                     "secretType": "AzureMLSecret"
                   }
                 }

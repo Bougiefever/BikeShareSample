@@ -30,8 +30,8 @@ train_folder = 'train_ctf'
 test_folder = 'test_ctf'
 base_local = '/data/bikeshare/'
 model_path = os.path.join('.', 'outputs', 'model.dnn')
-blob_acct_name = 'bikesharestorage'
-blob_acct_key = 'L4XWmq7V6+Xk90GloM7zxNOkp4ut9kzyf7+1e1Qp9Bt+hGiP33jZuT4L9U8Gye4UWlrloXTtOMO+t4J7/3sMiA=='
+blob_acct_name = 'kpmgstorage1'
+blob_acct_key = '2+BXi305SN45G9yyhykvp7Ij6KYka9W/WvRH4aG5fOuK+9Fenk5Yhg6X6lUMrxjpxE4wKxXyk9NYptzUpZYQkQ=='
 
 final_train_file = base_local + train_folder + "/" + 'train_complete.ctf'
 final_test_file = base_local + test_folder + "/" + 'test_complete.ctf'

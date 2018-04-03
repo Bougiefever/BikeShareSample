@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 39,
+  "schemaVersion": 40,
   "id": "dda0eee9-f338-4e0f-a603-f484c26564fd",
   "activities": [
     {
@@ -14,14 +14,14 @@
               "target": 1,
               "resourceDetails": [
                 {
-                  "path": "https://bikesharestorage.blob.core.windows.net/data-files/tripdata/201701-hubway-tripdata.csv",
+                  "path": "https://bikeshare.blob.core.windows.net/data-files/201701-hubway-tripdata.csv",
                   "sas": {
-                    "id": "https://bikesharestorage.blob.core.windows.net/data-files/tripdata/201701-hubway-tripdata.csv",
+                    "id": "https://bikeshare.blob.core.windows.net/data-files/201701-hubway-tripdata.csv",
                     "secretType": "AzureMLSecret"
                   },
-                  "storageAccountName": "bikesharestorage",
+                  "storageAccountName": "bikeshare",
                   "storageAccountKey": {
-                    "id": "bikesharestorage",
+                    "id": "bikeshare",
                     "secretType": "AzureMLSecret"
                   }
                 }
@@ -34,7 +34,7 @@
           "type": "Microsoft.DPrep.ParseDelimitedBlock",
           "arguments": {
             "preview": false,
-            "columnHeadersMode": 1,
+            "columnHeadersMode": 3,
             "separator": ",",
             "fileEncoding": 0,
             "skipRowsMode": 0,
@@ -60,14 +60,18 @@
                 "columnId": "starttime",
                 "typeProperty": 4,
                 "typeArguments": {
-                  "dateTimeFormat": "%Y-%m-%d %H:%M:%S"
+                  "dateTimeFormats": [
+                    "%Y-%m-%d %H:%M:%S"
+                  ]
                 }
               },
               {
                 "columnId": "stoptime",
                 "typeProperty": 4,
                 "typeArguments": {
-                  "dateTimeFormat": "%Y-%m-%d %H:%M:%S"
+                  "dateTimeFormats": [
+                    "%Y-%m-%d %H:%M:%S"
+                  ]
                 }
               },
               {
