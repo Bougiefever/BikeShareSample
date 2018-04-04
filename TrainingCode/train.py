@@ -21,10 +21,11 @@ num_features = 212
 #sweep is a full pass through the data set.
 max_sweeps = 1000
 
-num_outputs = 58
+#num_outputs = 58
+num_outputs = 1
 # Define the task.
 x = C.input_variable(num_features)
-y = C.input_variable(num_outputs, is_sparse=True)
+y = C.input_variable(num_outputs, is_sparse=False)
 base_container = 'data-files'
 train_folder = 'train_ctf'
 test_folder = 'test_ctf'
@@ -58,15 +59,15 @@ def download_and_merge_ctf(remote_base, local_base, relative, output_file_name):
                 outfile.write(infile.read())
 
 download_and_merge_ctf(base_container, base_local, train_folder, final_train_file)
-#download_and_merge_ctf(base_container, base_local, test_folder, 'test_complete.ctf')
+download_and_merge_ctf(base_container, base_local, test_folder, 'test_complete.ctf')
 
 # Read a COMPOSITE reader to read data from both the image map and CTF files
 def create_minibatch_source(ctf_file, is_training, num_outputs):
     
     # create CTF DESERIALIZER for CTF file
     data_source = C.io.CTFDeserializer(ctf_file, C.io.StreamDefs(
-        features = C.io.StreamDef(field="features", shape=num_features),
-        label = C.io.StreamDef(field="label", shape=num_outputs)))
+        features = C.io.StreamDef(field="features", shape=num_features, is_sparse=False),
+        label = C.io.StreamDef(field="label", shape=num_outputs, is_sparse=False)))
 
     # create a minibatch source by compositing them together 
     return C.io.MinibatchSource([data_source], max_sweeps=max_sweeps, randomize=is_training)
@@ -92,10 +93,12 @@ def create_model(x):
 model = create_model(x)
 
 # loss function
-loss = C.cross_entropy_with_softmax(model, y)
+#loss = C.cross_entropy_with_softmax(model, y)
+loss = C.squared_error(model, y)
 
 #error metric function
-error = C.classification_error(model, y)
+#error = C.classification_error(model, y)
+error = C.sqrt(loss)
 
 #combine error and loss for training usage (AKA Criterion function)
 criterion = C.combine([loss, error])
@@ -130,5 +133,5 @@ progress = criterion.train(train_source,
                            parameter_learners = [learner], 
                            callbacks = [progress_writer, cv_config])#, checkpoint_config])#, test_config])
 
-inf_model = C.softmax(model)
-inf_model.save(model_path)
+#inf_model = C.softmax(model)
+model.save(model_path)
