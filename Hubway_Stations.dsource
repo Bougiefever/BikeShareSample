@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 40,
+  "id": "2e20b683-7a15-4505-b4f7-fe30c715a7fa",
+  "activities": [
+    {
+      "id": "5275ed91-7ec4-4513-8549-6a4a70ddce86",
+      "name": "Hubway_Stations",
+      "blocks": [
+        {
+          "id": "43537ff6-c12f-48f2-94dc-fd417f20b2e2",
+          "type": "Microsoft.DPrep.DataSourceBlock",
+          "arguments": {
+            "path": {
+              "target": 1,
+              "resourceDetails": [
+                {
+                  "path": "https://bikeshare.blob.core.windows.net/data-files/Hubway_Stations.csv",
+                  "sas": {
+                    "id": "https://bikeshare.blob.core.windows.net/data-files/Hubway_Stations.csv",
+                    "secretType": "AzureMLSecret"
+                  },
+                  "storageAccountName": "bikeshare",
+                  "storageAccountKey": {
+                    "id": "bikeshare",
+                    "secretType": "AzureMLSecret"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "b5d10117-7855-459d-bcc9-a7a0192eb744",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "preview": false,
+            "columnHeadersMode": 1,
+            "separator": ",",
+            "fileEncoding": 0,
+            "skipRowsMode": 0,
+            "handleQuotedLineBreaks": false
+          }
+        },
+        {
+          "id": "2ff1bb2c-0181-4cf4-9767-c7b2c7def838",
+          "type": "Microsoft.DPrep.SetColumnTypesBlock",
+          "arguments": {
+            "columnConversion": [
+              {
+                "columnId": "Latitude",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Longitude",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "# of Docks",
+                "typeProperty": 3,
+                "typeArguments": {}
+              }
+            ]
+          }
+        },
+        {
+          "id": "9479c292-3ab6-47ad-9a26-c1a3546d0798",
+          "type": "Microsoft.DPrep.SampleBlock",
+          "arguments": {
+            "samples": [
+              {
+                "sampleId": "41164108-4053-458b-99d7-1b3c3cb669ff",
+                "sampleRevision": "1b8c27e8-2109-4336-8c80-345113df1314",
+                "sampleName": "Full File",
+                "sampleRunner": {
+                  "id": null,
+                  "type": 0
+                },
+                "remoteGeneratorProperties": {},
+                "sampleStrategy": 3,
+                "topArguments": {
+                  "sampleCount": 10000
+                },
+                "randomNArguments": {
+                  "sampleCount": 10000
+                },
+                "randomPercentArguments": {
+                  "probability": 0.1
+                },
+                "allowAutoGen": true,
+                "isDisabled": false
+              }
+            ],
+            "activeSample": "41164108-4053-458b-99d7-1b3c3cb669ff"
+          }
+        },
+        {
+          "id": "c8c8c71e-f5dc-4911-8045-20e1be24bec5",
+          "type": "Microsoft.DPrep.HandlePathColumnBlock",
+          "arguments": {
+            "pathColumnOperation": 0
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "105e6151-2843-4455-a670-aaa6ddbbbd55",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "5275ed91-7ec4-4513-8549-6a4a70ddce86",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": false
+        }
+      ]
+    }
+  ],
+  "runConfigurations": []
+}

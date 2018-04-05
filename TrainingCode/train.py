@@ -3,10 +3,12 @@ from azure.storage.blob import BlockBlobService
 import os
 import cntk as C
 import numpy as np
+import pandas as pd
 import scipy.sparse
 import sys
 import glob
 from azureml.logging import get_azureml_logger
+from cntk.ops.functions import load_model
 
 run_logger = get_azureml_logger()
 
@@ -16,7 +18,8 @@ run_logger = get_azureml_logger()
 minibatch_size = 10000
 #epoch size is virtual concept of whole data set.
 epoch_size = 50000
-num_features = 212
+num_features = 224
+max_epochs = 200
 
 #sweep is a full pass through the data set.
 max_sweeps = 1000
@@ -58,8 +61,8 @@ def download_and_merge_ctf(remote_base, local_base, relative, output_file_name):
             with open(f, "rb") as infile:
                 outfile.write(infile.read())
 
-download_and_merge_ctf(base_container, base_local, train_folder, final_train_file)
-download_and_merge_ctf(base_container, base_local, test_folder, 'test_complete.ctf')
+#download_and_merge_ctf(base_container, base_local, train_folder, final_train_file)
+#download_and_merge_ctf(base_container, base_local, test_folder, final_test_file)
 
 # Read a COMPOSITE reader to read data from both the image map and CTF files
 def create_minibatch_source(ctf_file, is_training, num_outputs):
@@ -129,9 +132,12 @@ progress = criterion.train(train_source,
                            minibatch_size = minibatch_size,
                            model_inputs_to_streams = input_map,
                            epoch_size = epoch_size,
-                           max_epochs = 100, 
+                           max_epochs = max_epochs, 
                            parameter_learners = [learner], 
                            callbacks = [progress_writer, cv_config])#, checkpoint_config])#, test_config])
 
 #inf_model = C.softmax(model)
+
 model.save(model_path)
+
+

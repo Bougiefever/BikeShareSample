@@ -32,3 +32,12 @@ def run(input_data):
     except Exception as exc:
         return (str(exc))
     return json.dumps(post_proc)
+
+if __name__ == "__main__":
+    init()
+    arr = "0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0.3696682464454976 0.6436781609195402 0.29577464788732394 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+    arr = arr.split(' ')
+    arr = np.asarray(arr, dtype=np.float32)
+    
+    pred = MODEL.eval( arr )
+    print(pred)

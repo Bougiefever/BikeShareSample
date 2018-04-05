@@ -533,6 +533,24 @@
               "r_Date Hour Range"
             ]
           }
+        },
+        {
+          "id": "034b79f4-01d4-4d25-98cf-b26b6c82bb05",
+          "type": "Microsoft.DPrep.WriteToCsvBlock",
+          "arguments": {
+            "path": {
+              "target": 0,
+              "resourceDetails": [
+                {
+                  "path": "C:\\Users\\anbougie\\Documents\\AzureML\\BikeshareData\\test_data.csv"
+                }
+              ]
+            },
+            "eol": 1,
+            "na": "NA",
+            "error": "ERROR",
+            "separator": ","
+          }
         }
       ],
       "inspectors": [
@@ -858,6 +876,46 @@
             "anonymousSteps": null
           },
           "isBackground": true
+        }
+      ]
+    },
+    {
+      "id": "17e03be7-2f7f-4fca-97cb-0a0a0fde3ff3",
+      "name": "Hubway_Stations",
+      "blocks": [
+        {
+          "id": "7c89d856-81eb-4fa6-b428-b8d638be43d2",
+          "type": "Microsoft.DPrep.ReferenceActivityBlock",
+          "arguments": {
+            "reference": {
+              "referenceType": 1,
+              "referenceContainerPath": "./Hubway_Stations.dsource",
+              "referencedActivityId": "5275ed91-7ec4-4513-8549-6a4a70ddce86",
+              "referencedBranchId": null,
+              "referencedStep": null,
+              "anonymousSteps": null
+            }
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "388ea489-4794-4430-b6b8-eaf485702f91",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "17e03be7-2f7f-4fca-97cb-0a0a0fde3ff3",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": false
         }
       ]
     }
