@@ -1,0 +1,7 @@
+type: remotedocker
+baseDockerImage: 'microsoft/mmlspark:plus-0.9.9'
+sharedVolumes: true
+nativeSharedDirectory: ~/.azureml/share/
+address: 13.90.129.180
+username: dsvmadmin
+password: AzureMlSecret=a0d49c30-bed7-941e-e949-6037329a8c41

@@ -542,7 +542,7 @@
               "target": 0,
               "resourceDetails": [
                 {
-                  "path": "C:\\Users\\anbougie\\Documents\\AzureML\\BikeshareData\\test_data.csv"
+                  "path": "C:\\Users\\anbougie\\Documents\\AzureML\\BikeshareData\\test_data2.csv"
                 }
               ]
             },

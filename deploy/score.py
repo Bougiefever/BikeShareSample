@@ -65,23 +65,23 @@ def run(input_data):
         return (str(exc))
     return json.dumps(post_proc)
 
-# if __name__ == "__main__":
-#     init()
-#     arr = "|label 2 |features 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0.46919431279620855 0.3103448275862069 0.3380281690140845 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
-#     arr = arr.strip().split(' ')
-#     arr = arr[3:]
-#     arr = np.asarray(arr, dtype=np.float32)
+if __name__ == "__main__":
+    init()
+    arr = "|label 2 |features 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0.46919431279620855 0.3103448275862069 0.3380281690140845 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+    arr = arr.strip().split(' ')
+    arr = arr[3:]
+    arr = np.asarray(arr, dtype=np.float32)
     
-#     pred = predict(arr)
-#     print(pred)
+    pred = predict(arr)
+    print(pred)
 
-#     raw_data = ['12AM-2AM','Sun',0.450236967,0.873563218,0.436619718,'67.0']
-#     target = 2
-#     data = pre_process(raw_data)
-#     prediction = predict(data)
-#     result = post_process(prediction)
-#     print(result, target)
+    raw_data = ['12AM-2AM','Sun',0.450236967,0.873563218,0.436619718,'67.0']
+    target = 2
+    data = pre_process(raw_data)
+    prediction = predict(data)
+    result = post_process(prediction)
+    print(result, target)
 
-#     test_data = ['2PM-4PM','Mon',0.45971564,0.626436782,0.112676056,'6.0']
-#     test = run(test_data)
-#     print(test)
+    test_data = ['2PM-4PM','Mon',0.45971564,0.626436782,0.112676056,'6.0']
+    test = run(test_data)
+    print(test)

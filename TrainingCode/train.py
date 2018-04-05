@@ -1,6 +1,6 @@
 from __future__ import print_function
 from azure.storage.blob import BlockBlobService
-import os
+import os, math
 import cntk as C
 import numpy as np
 import pandas as pd
@@ -8,7 +8,6 @@ import scipy.sparse
 import sys
 import glob
 from azureml.logging import get_azureml_logger
-from cntk.ops.functions import load_model
 
 run_logger = get_azureml_logger()
 
@@ -19,7 +18,7 @@ minibatch_size = 10000
 #epoch size is virtual concept of whole data set.
 epoch_size = 50000
 num_features = 224
-max_epochs = 200
+max_epochs = 10
 
 #sweep is a full pass through the data set.
 max_sweeps = 1000
@@ -89,6 +88,7 @@ def create_model(x):
             h = C.layers.Dense(num_neurons, name="first")(x)
             h = C.layers.Dense(num_neurons, name="second")(h)
             h = C.layers.Dense(num_neurons, name="third")(h)
+            h = C.layers.Dense(num_neurons, name="fourth")(h)
             h = C.layers.Dropout(dropout_rate=0.5)(h)
             p = C.layers.Dense(num_outputs, activation = None, name="prediction")(h)         
             return p
@@ -139,5 +139,17 @@ progress = criterion.train(train_source,
 #inf_model = C.softmax(model)
 
 model.save(model_path)
+
+# Testing
+# with open(final_test_file) as f:
+#   content = f.readlines()
+
+# for line in content:
+#     arr = line.strip().split(' ')
+#     actual_value = arr[1]
+#     features = np.asarray(arr[3:], dtype=np.float32)
+#     raw_result = model.eval(features)
+#     result = round(raw_result[0][0])
+#     print("raw: ", raw_result, " prediction: ", result, " actual: ", actual_value)
 
 
