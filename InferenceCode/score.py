@@ -9,7 +9,7 @@ MODEL = ''
 def init():
     '''Initialize the model'''
     global MODEL 
-    MODEL = load_model('model.dnn')
+    MODEL = load_model('212_model.dnn')
 
 def pre_process(data):    
     '''Preprocess data to prep for ML'''
