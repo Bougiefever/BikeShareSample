@@ -106,6 +106,31 @@
             "anonymousSteps": null
           },
           "isBackground": false
+        },
+        {
+          "id": "93837920-271e-4c35-8337-e051ce2d7c94",
+          "type": "Microsoft.DPrep.ValueCountInspector",
+          "arguments": {
+            "columnId": "HOURLYDRYBULBTEMPF",
+            "numberOfTopValues": 6,
+            "descending": true,
+            "includeNulls": true,
+            "haloEffect": true,
+            "logScale": false
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "a9c099a0-b87b-4e8b-8c59-5985d42dd4a0",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
         }
       ]
     }

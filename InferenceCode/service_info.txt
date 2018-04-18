@@ -1,0 +1,27 @@
+{
+        "time_bucket": "12AM-2AM", 
+        "day": "Sun", 
+        "dry_bulb_temp": "0.450236967",
+        "relative_humidity": "0.873563218",
+        "hourly_wind_speed": "0.436619718",
+        "station_id": "67.0"
+ }
+
+ http://127.0.0.1:32782/score
+
+[Local mode] Service ID: bikeshareservice
+[Local mode] Usage for cmd: az ml service run realtime -i bikeshareservice -d !! YOUR DATA HERE !!
+[Local mode] Usage for powershell: az ml service run realtime -i bikeshareservice --% -d !! YOUR DATA HERE !!
+[Local mode] Additional usage information: 'az ml service usage realtime -i bikeshareservice'
+
+# Create model
+az ml model register --model model.dnn --name model.dnn
+
+# Create manifest
+az ml manifest create --manifest-name bikesharemanifest -f score.py -r python -i 7e22440ca8504c76a88d04e2b3ee247d -c conda_dependencies.yml
+
+# Create docker image
+az ml image create -n bikeshareimage --manifest-id 91adba16-c56b-45ca-86d8-da3e74e14204 -c conda_dependencies.yml
+
+# Create service
+az ml service create realtime --image-id ae281a57-3ba1-4e73-8a75-80d515c49c0f -n bikeshareservice --collect-model-data true

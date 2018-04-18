@@ -1,5 +1,5 @@
 address: kpmghdinsight-ssh.azurehdinsight.net
-password: AzureMlSecret=hdinsight#sshuser#5155132c94b248019b1bcf83101417b2
+password: AzureMlSecret=hdinsight#sshuser#c10e6340b27f4d3da1e38c6c6cefdb4d
 type: cluster
 userManagedEnvironment: false
 username: sshuser

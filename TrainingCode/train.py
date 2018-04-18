@@ -88,7 +88,6 @@ def create_model(x):
             h = C.layers.Dense(num_neurons, name="first")(x)
             h = C.layers.Dense(num_neurons, name="second")(h)
             h = C.layers.Dense(num_neurons, name="third")(h)
-            h = C.layers.Dense(num_neurons, name="fourth")(h)
             h = C.layers.Dropout(dropout_rate=0.5)(h)
             p = C.layers.Dense(num_outputs, activation = None, name="prediction")(h)         
             return p

@@ -1,0 +1,6 @@
+address: kpmg2-ssh.azurehdinsight.net
+password: AzureMlSecret=hdinsight2#sshuser#868a25b6f1804d088fc301372966eb2e
+type: cluster
+userManagedEnvironment: false
+username: sshuser
+yarnDeployMode: cluster

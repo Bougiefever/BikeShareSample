@@ -5,6 +5,6 @@ EnvironmentVariables: null
 Framework: PySpark
 PrepareEnvironment: false
 SparkDependenciesFile: aml_config/spark_dependencies.yml
-Target: remotedocker
+Target: hdinsight2
 TrackedRun: true
 UseSampling: true

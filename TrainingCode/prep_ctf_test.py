@@ -54,5 +54,5 @@ def row_to_ctf_string(r):
 
 pfw = mapped.rdd.flatMap(lambda r: Row(row_to_ctf_string(r)) )
 
-pfw.saveAsTextFile("wasb://data-files@kpmgstorage1.blob.core.windows.net/test_ctf")
+pfw.saveAsTextFile("wasb://data-files@kpmgstorage1.blob.core.windows.net/test_ctf_test")
 
